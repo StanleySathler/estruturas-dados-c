@@ -13,3 +13,15 @@ O livro sempre implementa uma estrutura de dados e, em seguida, fornece alguns e
 Como as estruturas são "genéricas" e sempre reutilizadas por vários exercícios, elas foram separadas em [outros repositórios](https://github.com/ss-c-cpp). Este aqui só contêm os exercícios.
 
 [Clique aqui para ver as estruturas de dados implementadas](https://github.com/ss-c-cpp). Nem todos os repositórios nessa organização são estruturas de dados, mas as estruturas estão todas aí, espalhadas.
+
+## Estrutura do projeto
+
+Cada capítulo possui sua própria pasta nomeada `cap-[X]-[assunto]`. Os exercícios são nomeados como `[cap]-[numero]`, de acordo com o livro (ex. exercícios do capítulo 2 são numerados como 2.1, 2.2, 2.3 e por aí vai).
+
+## Compilando os exercícios
+
+Os exercícios foram feitos em um Ubuntu Linux 18.04 x64. Para compilar um deles, use:
+
+```sh
+$ make run exercise=[pasta]/[exercicio] # Nao inclua um `.c` no final
+```
