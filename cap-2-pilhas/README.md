@@ -28,3 +28,20 @@ Solução:
 ### Exercício 2.5
 
 Usando pilha, crie uma função para verificar se uma expressão composta apenas por chaves, colchetes e parênteses, representada por uma cadeia, está ou não _balanceada_. Por exemplo, as expressões `[{()()}{}]` e `{[([{}])]}` estão balanceadas, mas as expressões `{[(}]}` e `{[)()(]}` não estão.
+
+Solução:
+
+- Declara pilha A
+- Para cada i em [entrada]
+  - Se i = ('{' | '(' | '[')
+    - add(A, i)
+  - Senao se i = ('}' | ')' | ']')
+    - Se i corresponde à topo(A)
+      - desempilha(A)
+    - Senao
+      - Retorna falso
+  - Senao
+    - Retorna falso
+- Se pilha nao estiver vazia
+  - Retorna false
+- Retorna verdadeiro
