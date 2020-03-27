@@ -8,7 +8,22 @@ Usando pilha, crie um programa para inverter a ordem das letras nas palavras de 
 
 ### Exercício 2.4
 
-Crie um programa que usa duas pilhas A e B para ordenar uma sequência de n números reais dados pelo usuário. A ideia é organizar a pilha A de modo que nenhum item seja empilhado sobre outro menor (use a pilha B apenas como espaço de manobra), depois, descarregue e exiba os itens da pilha A.
+_Crie um programa que usa duas pilhas A e B para ordenar uma sequência de n números reais dados pelo usuário. A ideia é organizar a pilha A de modo que nenhum item seja empilhado sobre outro menor (use a pilha B apenas como espaço de manobra), depois, descarregue e exiba os itens da pilha A._
+
+Solução:
+
+- Para cada i em [entrada]
+  - Se i < topo(A)
+    - add(A, i)
+  - Senão
+    - Para cada j em [A]
+      - Se i > j
+        - add(B, j)
+      - Senão
+        - add(A, j)
+        - Copia B para A
+- Printa A na tela
+
 
 ### Exercício 2.5
 
