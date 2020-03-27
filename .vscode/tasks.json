@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "gcc build active file",
+      "command": "/usr/bin/gcc",
+      "args": [
+        "-g",
+        "-static",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}.out",
+        "${file}",
+        "-L${fileDirname}/../libs",
+        "-lstack"
+      ],
+      "options": {
+        "cwd": "/usr/bin"
+      }
+    }
+  ],
+  "version": "2.0.0"
+}
