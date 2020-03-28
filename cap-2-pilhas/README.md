@@ -7,6 +7,17 @@
 
 _Usando pilha, crie um programa para inverter a ordem das letras nas palavras de uma frase digitada pelo usuário. Por exemplo, se for digitada a frase "apenas um teste", o programa deverá exibir a frase "sanepa mu etset"._
 
+Solução:
+
+- Declara pilha A
+- Para cada i em [entrada]
+  - Se i é um caractere
+    - Empilha i em A
+  - Se i é um espaço ou quebra de linha
+    - Enquanto A conter algo:
+      - Desempilha A
+      - Printa na tela
+
 ### Exercício 2.4
 ---
 
