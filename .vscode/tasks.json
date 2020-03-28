@@ -10,6 +10,7 @@
         "-o",
         "${fileDirname}/${fileBasenameNoExtension}.out",
         "${file}",
+        "-I${fileDirname}/../libs",
         "-L${fileDirname}/../libs",
         "-lstack"
       ],
