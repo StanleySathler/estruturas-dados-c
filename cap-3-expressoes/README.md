@@ -24,6 +24,9 @@ Implementação:
   - Senão, se i é operando,
     - Adiciona i em v_final
   - Senão, se i é operador,
+    - Se prioridade(i) < prioridade(topo(v_operadores))
+      - Desempilha j de v_operadores
+      - Adiciona j em v_final
     - Empilha i em v_operadores
   - Senão, se i == ")"
     - Desempilha j de v_operadores
