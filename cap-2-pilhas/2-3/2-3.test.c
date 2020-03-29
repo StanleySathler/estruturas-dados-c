@@ -7,14 +7,20 @@
  */
 #define PREPARE(actual) memset(actual, '\0', sizeof(actual))
 
+void
+assert(const char* expected, char* actual, const char* message)
+{
+  assert_string(expected, actual, message);
+  PREPARE(actual);
+}
+
 int
 main()
 {
   char actual[100];
 
-  PREPARE(actual);
   exec_2_3("apenas um teste", actual);
-  assert_string(
+  assert(
     "sanepa mu etset",
     actual,
     "[apenas um teste]"
