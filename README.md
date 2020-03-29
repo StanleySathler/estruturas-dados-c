@@ -20,8 +20,15 @@ Cada capítulo possui sua própria pasta nomeada `cap-[X]-[assunto]`. Os exercí
 
 ## Compilando os exercícios
 
-Os exercícios foram feitos em um Ubuntu Linux 18.04 x64. Para compilar um deles, use:
+Os exercícios foram feitos em um Ubuntu Linux 18.04 x64, e algumas instruções foram escritas em C99.
+
+Cada exercício possui seu próprio arquivo de implementação e um arquivo de testes, que servem como testes unitários. São os arquivos de testes quem possuem a função `main()`, logo, para rodar cada exercício, é necessário compilar e executar o arquivo de teste, e não o arquivo principal.
+
+Para compilar e executar um exercício, use:
 
 ```sh
-$ make run exercise=[pasta]/[exercicio] # Nao inclua um `.c` no final
+$ make run exercise=[caminho/pasta/exercicio] # Nao inclua um `.test.c` no final
+
+# Exemplo:
+# make run exercise=cap-2-pilhas/2-5/2-5
 ```
