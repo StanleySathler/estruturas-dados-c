@@ -10,13 +10,15 @@ _Usando pilha, crie um programa para inverter a ordem das letras nas palavras de
 Solução:
 
 - Declara pilha A
+- Declara string v_saida
+
 - Para cada i em [entrada]
   - Se i é um caractere
     - Empilha i em A
   - Se i é um espaço ou quebra de linha
     - Enquanto A conter algo:
-      - Desempilha A
-      - Printa na tela
+      - Desempilha j de A
+      - Adiciona j em v_saida
 
 ### Exercício 2.4
 ---
