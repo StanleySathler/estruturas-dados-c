@@ -25,7 +25,7 @@ priority(char c)
     return 2;
 }
 
-int
+void
 postfix_convert(const char infix[], char postfix[])
 {
   int length = strlen(infix);
@@ -105,6 +105,4 @@ postfix_convert(const char infix[], char postfix[])
    * string in C codes.
    */
   strncat(postfix, &null_ch, 1);
-
-  return 0;
 }
