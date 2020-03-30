@@ -32,3 +32,17 @@ $ make run exercise=[caminho/pasta/exercicio] # Nao inclua um `.test.c` no final
 # Exemplo:
 # make run exercise=cap-2-pilhas/2-5/2-5
 ```
+
+## Debugging dos exercícios
+
+### VS Code
+
+Até então, além do próprio GDB via linha de comando, o único debuggin suportado é o do [VS Code](https://code.visualstudio.com/download).
+
+Para fazer debugging de qualquer um dos exercícios usando o VS Code você precisa garantir que o arquivo com a **implementação** do exercício (e não o arquivo de teste) esteja aberto no VS Code e que este seja a "aba atual" quando você clicar na opção de debugging.
+
+Essas "regras" precisam ser seguidas devido à maneira como o debugging do VS Code funciona. Nos arquivos de configuração (dentro do diretório `.vscode`), nós nos baseamos no nome do arquivo selecionado para fazer a configuração do debugging.
+
+Por enquanto somente as implementações podem passar por debugging - os testes em si, não. Logo, breakpoints só funcionam dentro dos arquivos de implementação.
+
+Se você quiser debugar o arquivo `cap-3-expressoes/conversor/conversor.c`, por exemplo, você precisa garantir que este arquivo esteja aberto na **aba atual** do seu VS Code quando clicar em `gcc - Build and debug active file`.
