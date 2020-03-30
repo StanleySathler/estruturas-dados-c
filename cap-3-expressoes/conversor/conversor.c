@@ -51,6 +51,7 @@ postfix_convert(const char infix[], char postfix[])
 
     /* Operator (+, -, /, *). */
     else if (is_operator(curr_ch)) {
+      strncat(postfix, " ", 1);
 
       /* While item at the top has a higher priority,
        * move it from the stack to the postfix
@@ -62,6 +63,7 @@ postfix_convert(const char infix[], char postfix[])
       ) {
         char operator = stack_pop(&operators);
         strncat(postfix, &operator, 1);
+        strncat(postfix, " ", 1);
       }
 
       /* Then put the current operator in the
@@ -80,6 +82,7 @@ postfix_convert(const char infix[], char postfix[])
         !stack_is_empty(&operators) &&
         stack_top(&operators) != '('
       ) {
+        strncat(postfix, " ", 1);
         char operator = stack_pop(&operators);
         strncat(postfix, &operator, 1);
       }
@@ -97,6 +100,7 @@ postfix_convert(const char infix[], char postfix[])
    * to the postfix expression.
    */
   while (!stack_is_empty(&operators)) {
+    strncat(postfix, " ", 1);
     char operator = stack_pop(&operators);
     strncat(postfix, &operator, 1);
   }

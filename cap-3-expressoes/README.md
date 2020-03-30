@@ -27,16 +27,20 @@ Implementação:
   - Senão, se i é operando,
     - Adiciona i em v_posfixa
   - Senão, se i é operador,
+    - Adiciona espaço em v_posfixa
     - Enquanto prioridade(topo(v_operadores)) >= prioridade(i)
       - Desempilha j de v_operadores
       - Adiciona j em v_posfixa
+      - Adiciona espaço em v_posfixa
     - Empilha i em v_operadores
   - Senão, se i == ')'
     - Enquanto topo(v_operadores) != '('
+      - Adiciona espaço em v_posfixa
       - Desempilha j de v_operadores
       - Adiciona j em v_posfixa
     - Desempilha '(' de v_operadores
 - Se v_operadores nao estiver vazia
   - Enquanto houver items em v_operadores
+    - Adiciona espaço em v_posfixa
     - Desempilha j de v_operadores
     - Adiciona j em v_posfixa
