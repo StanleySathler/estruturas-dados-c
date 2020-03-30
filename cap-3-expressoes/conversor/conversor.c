@@ -17,7 +17,9 @@ is_operator(char c)
 static int
 priority(char c)
 {
-  if (c == '+' || c == '-')
+  if (c == '(')
+    return 0;
+  else if (c == '+' || c == '-')
     return 1;
   else if (c == '*' || c == '/')
     return 2;
@@ -35,8 +37,12 @@ postfix_convert(const char infix[], char postfix[])
     curr_ch = infix[i];
 
     /* Completely ignore this symbol. */
-    if (curr_ch == '(' || curr_ch == ' ')
+    if (curr_ch == ' ')
       continue;
+
+    /* Opening parenthesis? Push into stack. */
+    else if (curr_ch == '(')
+      stack_push(&operators, curr_ch);
 
     /* Operand (0-9). */
     else if (isdigit(curr_ch)) {
@@ -46,26 +52,40 @@ postfix_convert(const char infix[], char postfix[])
     /* Operator (+, -, /, *). */
     else if (is_operator(curr_ch)) {
 
-      /* If current operator has a lower priority, move
-       * the higher operator from the stack to the postfix.
+      /* While item at the top has a higher priority,
+       * move it from the stack to the postfix
+       * expression.
        */
-      if (
+      while (
         !stack_is_empty(&operators) &&
-        priority(curr_ch) < priority(stack_top(&operators))
+        priority(curr_ch) <= priority(stack_top(&operators))
       ) {
         char operator = stack_pop(&operators);
         strncat(postfix, &operator, 1);
       }
 
+      /* Then put the current operator in the
+       * stack.
+       */
       stack_push(&operators, curr_ch);
     }
 
-    /* Closing parenthesis must be replaced
-     * by the last operator seen.
-     */
+    /* Closing parenthesis? */
     else if (curr_ch == ')') {
-      char operator = stack_pop(&operators);
-      strncat(postfix, &operator, 1);
+
+      /* Then move everything from stack until it finds
+       * an opening parenthesis.
+       */
+      while (
+        !stack_is_empty(&operators) &&
+        stack_top(&operators) != '('
+      ) {
+        char operator = stack_pop(&operators);
+        strncat(postfix, &operator, 1);
+      }
+
+      /* Remove '(' from stack. */
+      stack_pop(&operators);
     }
 
     else {

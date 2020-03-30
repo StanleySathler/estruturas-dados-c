@@ -2,7 +2,7 @@
 
 ## Descrição da implementação
 
-Expressões infixas e posfixas são maneiras diferentes de escrever uma expressão matemática. A posfixa é uma maneira de escrevê-las jogando todos os operadores pra DEPOIS dos operandos.
+Expressões infixas e posfixas são maneiras diferentes de escrever uma expressão matemática. A posfixa é uma maneira de escrevê-las jogando todos os operadores para DEPOIS dos operandos.
 
 ```sh
 # Infixa
@@ -20,17 +20,22 @@ Implementação:
 - Declara pilha v_operadores
 
 - Para cada i em [expressao]
-  - Se i == "(" ou espaço em branco, nao faz nada
+  - Se i é espaço em branco,
+    - Ignore e vá para a próx. iteração
+  - Senão, se i == "("
+    - Empilha i em v_operadores
   - Senão, se i é operando,
     - Adiciona i em v_posfixa
   - Senão, se i é operador,
-    - Se prioridade(i) < prioridade(topo(v_operadores))
+    - Enquanto prioridade(topo(v_operadores)) >= prioridade(i)
       - Desempilha j de v_operadores
       - Adiciona j em v_posfixa
     - Empilha i em v_operadores
-  - Senão, se i == ")"
-    - Desempilha j de v_operadores
-    - Adiciona j em v_posfixa
+  - Senão, se i == ')'
+    - Enquanto topo(v_operadores) != '('
+      - Desempilha j de v_operadores
+      - Adiciona j em v_posfixa
+    - Desempilha '(' de v_operadores
 - Se v_operadores nao estiver vazia
   - Enquanto houver items em v_operadores
     - Desempilha j de v_operadores
