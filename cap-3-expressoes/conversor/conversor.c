@@ -25,6 +25,19 @@ priority(char c)
     return 2;
 }
 
+static int
+calculate(char a, char opr, char b)
+{
+  if (opr == '+')
+    return a + b;
+  else if (opr == '-')
+    return a - b;
+  else if (opr == '*')
+    return a * b;
+  else if (opr == '/')
+    return a / b;
+}
+
 void
 postfix_convert(const char infix[], char postfix[])
 {
@@ -109,4 +122,35 @@ postfix_convert(const char infix[], char postfix[])
    * string in C codes.
    */
   strncat(postfix, &null_ch, 1);
+}
+
+int
+postfix_calculate(const char postfix[])
+{
+  int len = strlen(postfix);
+  stack_t numbers = stack_create(len);
+
+  for (int i = 0; postfix[i]; i++) {
+
+    /* Digit? Push it as a number by using an ASCII
+     * trick.
+     */
+    if (isdigit(postfix[i]))
+      stack_push(&numbers, postfix[i] - '0');
+
+    /* Operator? Pop two numbers from stack, calculate
+     * them and then push the result into the stack again.
+     */
+    else if (is_operator(postfix[i])){
+      int b = stack_pop(&numbers);
+      int a = stack_pop(&numbers);
+      stack_push(&numbers, calculate(a, postfix[i], b));
+    }
+  }
+
+  /* Last item is always the final result. */
+  int total = stack_pop(&numbers);
+
+  stack_destroy(&numbers);
+  return total;
 }

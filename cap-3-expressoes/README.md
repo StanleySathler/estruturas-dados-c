@@ -14,7 +14,7 @@ Expressões infixas e posfixas são maneiras diferentes de escrever uma express�
 
 [Mais informações (em inglês)](https://github.com/ss-c-cpp/infix2postfix).
 
-Implementação:
+### Implementação da conversão:
 
 - Declara string v_posfixa
 - Declara pilha v_operadores
@@ -44,3 +44,15 @@ Implementação:
     - Adiciona espaço em v_posfixa
     - Desempilha j de v_operadores
     - Adiciona j em v_posfixa
+
+### Implementação do cálculo:
+- Declara pilha v_numeros
+- Para cada i em [posfixa]
+  - Se i é operando
+    - Empilha i em v_numeros
+  - Senão, se i é operador
+    - Desempilha a de v_numeros
+    - Desempilha b de v_numeros
+    - Empilha calcula(a, operador, b)
+- Desempilha t de v_numeros
+- Retorna t (resultado final)
