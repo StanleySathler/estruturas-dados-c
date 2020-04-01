@@ -10,5 +10,9 @@ libraries:
 	wget -O $(LIBS_DIR)/libassert.a https://raw.githubusercontent.com/ss-c-cpp/assert/master/lib/libassert.a
 
 run:
-	gcc -g -static -o $(exercise).out $(exercise).test.c $(exercise).c -I./libs -L./libs -lstack -lassert
+	gcc -g -static -o \
+		$(exercise).out $(exercise).test.c $(exercise).c \
+		-I./libs -L./libs \
+		-lstack \
+		-lassert
 	./$(exercise).out
