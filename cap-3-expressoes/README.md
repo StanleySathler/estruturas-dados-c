@@ -47,8 +47,11 @@ Expressões infixas e posfixas são maneiras diferentes de escrever uma express�
 
 ### Implementação do cálculo:
 - Declara pilha v_numeros
+
 - Para cada i em [posfixa]
-  - Se i é operando
+  - Se i é espaço
+    - Ignora completamente
+  - Senão, se i é operando
     - Empilha i em v_numeros
   - Senão, se i é operador
     - Desempilha a de v_numeros

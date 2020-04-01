@@ -131,11 +131,13 @@ postfix_calculate(const char postfix[])
   stack_t numbers = stack_create(len);
 
   for (int i = 0; postfix[i]; i++) {
+    if (postfix[i] == ' ')
+      continue;
 
     /* Digit? Push it as a number by using an ASCII
      * trick.
      */
-    if (isdigit(postfix[i]))
+    else if (isdigit(postfix[i]))
       stack_push(&numbers, postfix[i] - '0');
 
     /* Operator? Pop two numbers from stack, calculate

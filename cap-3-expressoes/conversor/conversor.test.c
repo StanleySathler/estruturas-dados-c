@@ -36,9 +36,9 @@ main()
 
   int calculated = 0;
 
-  calculated = postfix_calculate("23*84/+");
-  assert_int(8, calculated, "[postfix_calculate]: 23*84/+");
+  calculated = postfix_calculate("2 3 * 8 4 / +");
+  assert_int(8, calculated, "[postfix_calculate]: 2 3 * 8 4 / +");
 
-  calculated = postfix_calculate("232*47*+*");
-  assert_int(68, calculated, "[postfix_calculate]: 232*47*+*");
+  calculated = postfix_calculate("2 3 2 * 4 7 * + *");
+  assert_int(68, calculated, "[postfix_calculate]: 2 3 2 * 4 7 * + *");
 }
