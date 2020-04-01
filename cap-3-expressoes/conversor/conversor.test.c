@@ -41,4 +41,7 @@ main()
 
   calculated = postfix_calculate("2 3 2 * 4 7 * + *");
   assert_int(68, calculated, "[postfix_calculate]: 2 3 2 * 4 7 * + *");
+
+  calculated = postfix_calculate("23 1 12 * +");
+  assert_int(35, calculated, "[postfix_calculate]: 23 1 12 * +");
 }

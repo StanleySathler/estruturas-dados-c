@@ -49,10 +49,10 @@ Expressões infixas e posfixas são maneiras diferentes de escrever uma express�
 - Declara pilha v_numeros
 
 - Para cada i em [posfixa]
-  - Se i é espaço
-    - Ignora completamente
-  - Senão, se i é operando
-    - Empilha i em v_numeros
+  - Se i é operando
+    - Salva o número em j (atof())
+    - Empilha j em v_numeros
+    - Pula i para o espaço após o número
   - Senão, se i é operador
     - Desempilha a de v_numeros
     - Desempilha b de v_numeros

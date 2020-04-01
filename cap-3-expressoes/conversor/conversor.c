@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include "include/stack.h"
@@ -131,14 +132,18 @@ postfix_calculate(const char postfix[])
   stack_t numbers = stack_create(len);
 
   for (int i = 0; postfix[i]; i++) {
-    if (postfix[i] == ' ')
-      continue;
-
-    /* Digit? Push it as a number by using an ASCII
-     * trick.
+    /* Digit? Convert number (using atof()) and push
+     * into the stack.
      */
-    else if (isdigit(postfix[i]))
-      stack_push(&numbers, postfix[i] - '0');
+    if (isdigit(postfix[i])) {
+      /* atof() receives the address of postfix[i]. */
+      stack_push(&numbers, atof(&postfix[i]));
+
+      /* Jump to after the whole number. */
+      while (isdigit(postfix[i]))
+        i++;
+    }
+
 
     /* Operator? Pop two numbers from stack, calculate
      * them and then push the result into the stack again.
