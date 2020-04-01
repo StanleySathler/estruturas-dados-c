@@ -10,6 +10,8 @@ Esse repositório foi criado para guardar todas os exercícios feitos ao ler o l
 
 O livro sempre implementa uma estrutura de dados e, em seguida, fornece alguns exercícios para que possamos praticar.
 
+É **importante ressaltar** que as implementações não necessariamente estão exatamente iguais às do livro, embora sigam os mesmos conceitos.
+
 Como as estruturas são "genéricas" e sempre reutilizadas por vários exercícios, elas foram separadas em [outros repositórios](https://github.com/ss-c-cpp). Este aqui só contêm os exercícios.
 
 [Clique aqui para ver as estruturas de dados implementadas](https://github.com/ss-c-cpp). Nem todos os repositórios nessa organização são estruturas de dados, mas as estruturas estão todas aí, espalhadas.
