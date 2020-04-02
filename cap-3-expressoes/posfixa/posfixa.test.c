@@ -1,6 +1,6 @@
 #include <string.h>
 #include "include/assert.h"
-#include "conversor.h"
+#include "posfixa.h"
 
 #define MAX 100
 #define AFTER_EACH(actual) memset(actual, '\0', MAX)
