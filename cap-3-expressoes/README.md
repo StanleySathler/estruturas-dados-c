@@ -103,3 +103,15 @@ Solução:
     - Desempilha j de v_operadores
     - Adiciona j em v_prefixa
 - Inverte v_prefixa
+
+### Exercício 3.6
+
+Considerando _expressões lógicas_ infixas completamente parentesiadas, representadas por cadeias compostas exclusivamente por:
+
+- _Operandos_, representados pelas letras `V` (verdade) e `F` (falso).
+- _Operadores_, representados pelos caracteres `~` (não), `&` (e) e `|` (ou).
+- _Parênteses_, que muda as prioridades dos operadores (prioridade padrão: `~`, `&`, `|`).
+
+a) Crie uma função que devolve a _posfixa_ de uma expressão lógica infixa.
+b) Crie uma função que devolve o _valor_ de uma expressão lógica posfixa.
+c) Crie um programa que lê uma expressão lógica infixa e exibie sua forma posfixa e seu valor.
