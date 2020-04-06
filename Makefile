@@ -16,5 +16,6 @@ run:
 		$(exercise).out $(exercise).test.c $(exercise).c \
 		-I./libs -L./libs \
 		-lstack \
-		-lassert
+		-lassert \
+		-lqueue
 	./$(exercise).out
