@@ -35,6 +35,10 @@ $ make run exercise=[caminho/pasta/exercicio] # Nao inclua um `.test.c` no final
 # make run exercise=cap-2-pilhas/2-5/2-5
 ```
 
+### Nem todos os exercícios foram postados
+
+A ideia inicial é guardar apenas as resoluções que requerem um código. Os exercícios que requerem análise não foram discutidos aqui. Além disso, alguns exercícios que envolvam códigos também podem estar ausentes.
+
 ## Debugging dos exercícios
 
 ### VS Code

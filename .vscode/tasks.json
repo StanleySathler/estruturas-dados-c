@@ -14,7 +14,8 @@
         "-I${fileDirname}/../../libs",
         "-L${fileDirname}/../../libs",
         "-lstack",
-        "-lassert"
+        "-lassert",
+        "-lqueue"
       ],
       "options": {
         "cwd": "/usr/bin"
