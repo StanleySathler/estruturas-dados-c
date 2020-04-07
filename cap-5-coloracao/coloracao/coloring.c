@@ -20,8 +20,13 @@ coord_color(int image[HEIGHT][WIDTH], int line, int column)
 void
 flood_fill(int image[HEIGHT][WIDTH], int line, int column, int color)
 {
-  queue_t q = queue_create(HEIGHT * WIDTH);
   int prev_color = image[line][column];
+
+  /* Are colors equal? Return immediately. */
+  if (prev_color == color)
+    return;
+
+  queue_t q = queue_create(HEIGHT * WIDTH);
   int curr_coord = coord(line, column);
 
   /* Paint pixel and push into the queue. */
