@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "include/queue.h"
-#include "coloracao.h"
+#include "drawer.h"
 
 #define coord(line, column)     ((line) * 100 + (column))
 #define coord_to_line(coord)    ((coord) / 100)
