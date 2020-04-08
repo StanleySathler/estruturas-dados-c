@@ -19,3 +19,9 @@ run:
 		-lassert \
 		-lqueue
 	./$(exercise).out
+
+add:
+	mkdir -p $(chapter)/$(exercise)
+	cat templates/exec-c.txt >> $(chapter)/$(exercise)/$(exercise).c
+	cat templates/exec-h.txt >> $(chapter)/$(exercise)/$(exercise).h
+	cat templates/exec-test.txt >> $(chapter)/$(exercise)/$(exercise).test.c
