@@ -53,10 +53,22 @@ flood_fill(Image img, int line, int column, int color)
       queue_add(&q, coord(line - 1, column));
     }
 
+    /* Top-right neighbor. */
+    if (coord_color(img, line - 1, column + 1) == prev_color) {
+      img->pixels[calc_offset(img, line - 1, column + 1)] = color;
+      queue_add(&q, coord(line - 1, column + 1));
+    }
+
     /* Right neighbor. */
     if (coord_color(img, line, column + 1) == prev_color) {
       img->pixels[calc_offset(img, line, column + 1)] = color;
       queue_add(&q, coord(line, column + 1));
+    }
+
+    /* Bottom-right neighbor. */
+    if (coord_color(img, line + 1, column + 1) == prev_color) {
+      img->pixels[calc_offset(img, line + 1, column + 1)] = color;
+      queue_add(&q, coord(line + 1, column + 1));
     }
 
     /* Bottom neighbor. */
@@ -65,10 +77,22 @@ flood_fill(Image img, int line, int column, int color)
       queue_add(&q, coord(line + 1, column));
     }
 
+    /* Bottom-left neighbor. */
+    if (coord_color(img, line + 1, column - 1) == prev_color) {
+      img->pixels[calc_offset(img, line + 1, column - 1)] = color;
+      queue_add(&q, coord(line + 1, column - 1));
+    }
+
     /* Left neighbor. */
     if (coord_color(img, line, column - 1) == prev_color) {
       img->pixels[calc_offset(img, line, column - 1)] = color;
       queue_add(&q, coord(line, column - 1));
+    }
+
+    /* Top-left beighbor. */
+    if (coord_color(img, line - 1, column - 1) == prev_color) {
+      img->pixels[calc_offset(img, line - 1, column - 1)] = color;
+      queue_add(&q, coord(line - 1, column - 1));
     }
   }
 
