@@ -1,10 +1,14 @@
 #include "include/assert.h"
 #include "coloracao.h"
 
+#define WIDTH 9
+#define HEIGHT 9
+
 int
 main()
 {
-  int image[HEIGHT][WIDTH] = {
+  Image img;
+  int pixels[HEIGHT][WIDTH] = {
     { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
     { 0, 0, 0, 0, 1, 0, 0, 0, 0 },
     { 0, 0, 0, 1, 1, 1, 0, 0, 0 },
@@ -16,31 +20,36 @@ main()
     { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
   };
 
-  flood_fill(image, 2, 4, 5);
-  assert_int(5, image[2][4], "[flood_fill]: Should paint (2-4)");
+  img = drawer_image_create((int*)pixels, 9, 9);
+  assert_int(0, img->pixels[0 * WIDTH + 0], "[drawer_image_create]: Should copy pixel (0,0)");
+  assert_int(1, img->pixels[1 * WIDTH + 4], "[drawer_image_create]: Should copy pixel (1,4)");
+  assert_int(2, img->pixels[7 * WIDTH + 6], "[drawer_image_create]: Should copy pixel (1,4)");
 
-  assert_int(5, image[1][4], "[flood_fill]: Should paint (1-4)");
-  assert_int(5, image[2][3], "[flood_fill]: Should paint (2-3)");
-  assert_int(5, image[2][5], "[flood_fill]: Should paint (2-5)");
+  flood_fill(img, 2, 4, 5);
+  assert_int(5, img->pixels[2 * WIDTH + 4], "[flood_fill]: Should paint (2-4)");
 
-  assert_int(5, image[3][2], "[flood_fill]: Should paint (3-2)");
-  assert_int(5, image[3][3], "[flood_fill]: Should paint (3-3)");
-  assert_int(5, image[3][4], "[flood_fill]: Should paint (3-4)");
-  assert_int(5, image[3][5], "[flood_fill]: Should paint (3-5)");
-  assert_int(5, image[3][6], "[flood_fill]: Should paint (3-6)");
+  assert_int(5, img->pixels[1 * WIDTH + 4], "[flood_fill]: Should paint (1-4)");
+  assert_int(5, img->pixels[2 * WIDTH + 3], "[flood_fill]: Should paint (2-3)");
+  assert_int(5, img->pixels[2 * WIDTH + 5], "[flood_fill]: Should paint (2-5)");
 
-  assert_int(5, image[4][1], "[flood_fill]: Should paint (4-1)");
-  assert_int(5, image[4][2], "[flood_fill]: Should paint (4-2)");
-  assert_int(5, image[4][3], "[flood_fill]: Should paint (4-3)");
-  assert_int(5, image[4][4], "[flood_fill]: Should paint (4-4)");
-  assert_int(5, image[4][5], "[flood_fill]: Should paint (4-5)");
-  assert_int(5, image[4][6], "[flood_fill]: Should paint (4-6)");
-  assert_int(5, image[4][7], "[flood_fill]: Should paint (4-7)");
+  assert_int(5, img->pixels[3 * WIDTH + 2], "[flood_fill]: Should paint (3-2)");
+  assert_int(5, img->pixels[3 * WIDTH + 3], "[flood_fill]: Should paint (3-3)");
+  assert_int(5, img->pixels[3 * WIDTH + 4], "[flood_fill]: Should paint (3-4)");
+  assert_int(5, img->pixels[3 * WIDTH + 5], "[flood_fill]: Should paint (3-5)");
+  assert_int(5, img->pixels[3 * WIDTH + 6], "[flood_fill]: Should paint (3-6)");
 
-  assert_int(0, image[0][4], "[flood_fill]: Should keep (0-4)");
-  assert_int(0, image[1][3], "[flood_fill]: Should keep (1-3)");
-  assert_int(2, image[5][2], "[flood_fill]: Should keep (5-2)");
-  assert_int(2, image[5][6], "[flood_fill]: Should keep (5-6)");
+  assert_int(5, img->pixels[4 * WIDTH + 1], "[flood_fill]: Should paint (4-1)");
+  assert_int(5, img->pixels[4 * WIDTH + 2], "[flood_fill]: Should paint (4-2)");
+  assert_int(5, img->pixels[4 * WIDTH + 3], "[flood_fill]: Should paint (4-3)");
+  assert_int(5, img->pixels[4 * WIDTH + 4], "[flood_fill]: Should paint (4-4)");
+  assert_int(5, img->pixels[4 * WIDTH + 5], "[flood_fill]: Should paint (4-5)");
+  assert_int(5, img->pixels[4 * WIDTH + 6], "[flood_fill]: Should paint (4-6)");
+  assert_int(5, img->pixels[4 * WIDTH + 7], "[flood_fill]: Should paint (4-7)");
+
+  assert_int(0, img->pixels[0 * WIDTH + 4], "[flood_fill]: Should keep (0-4)");
+  assert_int(0, img->pixels[1 * WIDTH + 3], "[flood_fill]: Should keep (1-3)");
+  assert_int(2, img->pixels[5 * WIDTH + 2], "[flood_fill]: Should keep (5-2)");
+  assert_int(2, img->pixels[5 * WIDTH + 6], "[flood_fill]: Should keep (5-6)");
 
   return 0;
 }
