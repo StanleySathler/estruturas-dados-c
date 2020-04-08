@@ -1,5 +1,5 @@
 #include "include/assert.h"
-#include "coloring.h"
+#include "coloracao.h"
 
 int
 main()

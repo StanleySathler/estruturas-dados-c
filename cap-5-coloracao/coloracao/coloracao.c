@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "include/queue.h"
-#include "coloring.h"
+#include "coloracao.h"
 
 #define coord(line, column)     ((line) * 100 + (column))
 #define coord_to_line(coord)    ((coord) / 100)
